@@ -1,34 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-function Lake({ name }) {
+
+function App() {
+  const [status, setStatus] = useState('Open');
   return (
     <div>
-      <h1>Visit {name}!</h1>
+      <h1>Status: {status}</h1>
+      <button onClick={() => setStatus('Open')}>Open</button>
+      <button onClick={() => setStatus('Back in 5')}>Break</button>
+      <button onClick={() => setStatus('Closed')}>Closed</button>
     </div>
   );
 }
 
-function SkiResort({ name }) {
-  return (
-    <div>
-      <h1>Visit {name}!</h1>
-    </div>
-  );
-}
-
-function App(props) {
-  return (
-    <div>
-      {props.season === 'summer' ? (
-        <Lake name="Jenny Lake" />
-      ) : props.season === 'winter' ? (
-        <SkiResort name="JHMR" />
-      ) : (
-        <h1>Come back in the winter or summer!</h1>
-      )}
-    </div>
-  );
-}
-
-ReactDOM.render(<App season="fall" />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
