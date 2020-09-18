@@ -2,17 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Hello({ library, message, number }) {
+function Lake({ name }) {
+  return <h1>{name}</h1>;
+}
+
+function App() {
   return (
     <div>
-      <h1>Welcome to {library}!</h1>
-      <p>{message}</p>
-      <p>{number} Props Total</p>
+      <Lake name="Lake Tahoe" />
+      <Lake name="Angora Lake" />
+      <Lake name="Shirley Lake" />
     </div>
   );
 }
 
-ReactDOM.render(
-  <Hello library="React" message="add dynamic data!" number={3} />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
