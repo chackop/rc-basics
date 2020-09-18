@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -22,8 +22,20 @@ function GitHubUser({ login }) {
   return null;
 }
 
+function Checkbox() {
+  const [checked, toggle] = useReducer((checked) => !checked, false);
+
+  return (
+    <>
+      <input type="checkbox" value={checked} onChange={toggle} />
+      {checked ? 'checked' : 'not checked'}
+    </>
+  );
+}
+
 function App() {
-  return <GitHubUser login="chackop" />;
+  // return <GitHubUser login="chackop" />;
+  return <Checkbox />;
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
