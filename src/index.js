@@ -34,8 +34,12 @@ function Checkbox() {
 }
 
 function App() {
-  // return <GitHubUser login="chackop" />;
-  return <Checkbox />;
+  return (
+    <>
+      <GitHubUser login="chackop" />
+      <Checkbox />
+    </>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
